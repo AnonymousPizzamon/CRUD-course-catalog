@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+#exits if there's undefined variable
 set -u
 
 DATA_DIR="${DATA_DIR:-./data}"

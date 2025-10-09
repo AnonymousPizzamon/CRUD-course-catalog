@@ -2,7 +2,7 @@
 set -u
 
 DATA_DIR="${DATA_DIR:-./data}"
-LOG_FILE="$DATA_DIR/queries.log"
+LOG_FILE="${LOG_FILE:-$DATA_DIR/queries.log}"
 mkdir -p "$DATA_DIR"
 touch "$LOG_FILE"
 

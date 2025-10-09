@@ -21,7 +21,22 @@ while true; do
   if ! read -r action; then exit 0; fi 
   
   case "${action^^}" in
-    C) ./create.bash ;;
+    C) #create option
+    echo "Enter department code:";   read -r dept_code
+    echo "Enter department name:";   read -r dept_name
+    echo "Enter course number:";     read -r num_raw
+    echo "Enter course name:";       read -r course_name
+    echo "Enter meeting days/times:"; read -r sched
+    echo "Enter start date (YYYY-MM-DD):"; read -r start
+    echo "Enter end date (YYYY-MM-DD):";   read -r end
+    echo "Enter credit hours:";       read -r hours
+    echo "Enter class size:";         read -r size
+
+    #pipes values to create.bash, create.bash will then have to read them in
+    printf "%s\n" \
+      "$dept_code" "$dept_name" "$num_raw" "$course_name" \
+      "$sched" "$start" "$end" "$hours" "$size" | ./create.bash
+    ;;
     R) ./read.bash ;;
     U) ./update.bash ;;
     D) ./delete.bash ;;
